@@ -15,3 +15,8 @@ def concatenate():
 	myUnsorted.reverse()
 	print('Reversed {val}'.format(val = myUnsorted))
 	
+	#Indexing
+	print(f'Index 2: {myUnsorted[2]}')
+	
+	#Slicing
+	print(f'Slice from 1 to 5 step 2: {myUnsorted[1:5:2]}')
