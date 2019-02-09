@@ -1,4 +1,7 @@
-import listigt
+#import listigt
+import dictionaries
 
 if __name__ == "__main__":
-	listigt.concatenate()
+	#listigt.concatenate
+	dictionaries
+	dictionaries.dictate()
