@@ -1,9 +1,12 @@
 #import listigt
 #import dictionaries
-import tuples
+#import tuples
+import sets
 
 if __name__ == "__main__":
 	#listigt.concatenate
 	# dictionaries
 	# dictionaries.dictate()
-	tuples.tupp()
+	# tuples.tupp()
+	sets
+	sets.upset()
