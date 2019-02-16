@@ -1,0 +1,5 @@
+This is a text file
+The second line
+1234567890
+abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
