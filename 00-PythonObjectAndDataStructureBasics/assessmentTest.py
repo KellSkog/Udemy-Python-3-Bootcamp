@@ -1,3 +1,9 @@
+#Numbers are either integer or float
+#Strings are ordered sequences of character
+#Lists are ordered sequences of objects
+#Tuples are imutable ordered sequences of objects
+#Dictionaries are mutable unordered sequences of maps (key-value pairs)
+#Sets are imutable unordered sequences of unique objects
 def numbers():
 #Write an equation that uses multiplication, division, an exponent, addition, and subtraction that is equal to 100.25
 	equation = 2 * 240 / 6 + 3**3 - 6.75
@@ -12,6 +18,7 @@ def numbers():
 #What would you use to find a number’s square root, as well as its square?
 	import math
 	print(f'Square root of 64: {math.sqrt(64)}, 5 squared: {math.pow(5, 2)} or {5**2}')
+	print(f'Square root of 64 can also be written as 2 ** 0.5 {2 ** 0.5}')
 	
 def strings():
 #Given the string 'hello' give an index command that returns 'e'
@@ -30,6 +37,7 @@ def lists():
 	list2.append(0)
 	list2.append(0)
 	print(f'Way 1: {list1}, way 2: {list2}')
+	print(f'Elements can be multiplied [0] * 3: {[0]*3}')
 	
 #Reassign 'hello' in this nested list to say 'goodbye' instead
 	list3 = [1,2,[3,4,'hello']]
@@ -42,6 +50,7 @@ def lists():
 	list4.sort()
 	list5 = [5,3,4,6,1].sort() #Return nothing
 	print(f'Correct: {list4}, Incorrect: {list5}')
+	print(f'Not in place sorting but returns a sorted object: {sorted([5,3,4,6,1])}')
 	
 def dictionaries():
 #Using keys and indexing, grab the 'hello' from the following dictionaries
@@ -56,8 +65,13 @@ def dictionaries():
 #Grab hello
 	print(d['k1'][0]['nest_key'][1][0])
 	
+# This will be hard and annoying!
+	d = {'k1':[1,2,{'k2':['this is tricky',{'tough':[1,2,['hello']]}]}]}
+	print(f"hard and annoying! {d['k1'][2]['k2'][1]['tough'][2][0]}")
+	
 #Can you sort a dictionary? Why or why not?
 #Dictionaries are unordered maps, and sorting implies order, so no!
+#Normal dictionaries are mappings not sequences, orderedDictionare can be sorted
 
 def tuples():
 #What is the major difference between tuples and lists?

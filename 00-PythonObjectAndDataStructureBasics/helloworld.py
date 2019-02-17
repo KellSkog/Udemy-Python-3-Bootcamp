@@ -1,23 +1,12 @@
-#import listigt
-#import dictionaries
-#import tuples
-# import sets
-# import files
 from assessmentTest import *
 
 if __name__ == "__main__":
-	#listigt.concatenate
-	# dictionaries
-	# dictionaries.dictate()
-	# tuples.tupp()
-	# sets.upset()
-	# files.textFile()
-	# numbers()
-	# strings()
-	# lists()
-	# dictionaries()
-	# tuples()
-	# sets()
+	numbers()
+	strings()
+	lists()
+	dictionaries()
+	tuples()
+	sets()
 	booleans()
 	
 # Basic Practice:
