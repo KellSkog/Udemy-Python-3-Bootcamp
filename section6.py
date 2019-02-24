@@ -66,8 +66,8 @@ def lesser_of_two_evens(a, b):
 '''ANIMAL CRACKERS: Write a function takes a two-word string and 
 returns True if both words begin with same letter'''
 def animal_crackers(input):
-	words = input.split()
-	return words[0][0].lower() == words[1][0].lower()
+	words = input.lower().split()
+	return words[0][0] == words[1][0]
 	
 '''MAKES TWENTY: Given two integers, return True if the sum of the integers is 20 
 or if one of the integers is 20. If not, return False'''
@@ -78,18 +78,22 @@ def makes_twenty(a, b):
 def old_macdonald(name):
 	if len(name) < 4:
 		return ''
-	capList = list(name)
-	capList[0] = capList[0].upper()
-	capList[3] = capList[3].upper()
-	return ''.join(capList)
+	# capList = list(name)
+	# capList[0] = capList[0].upper()
+	# capList[3] = capList[3].upper()
+	# return ''.join(capList)
+	first = name[:3].capitalize()
+	fourth = name[3:].capitalize()
+	return first + fourth
 	
 '''MASTER YODA: Given a sentence, return a sentence with the words reversed'''
 def master_yoda(sentence):
-	words = sentence.split()
-	reversed = [w +' ' for w in words[:0:-1]]
-	# print('*',reversed, '*', words[0], '*')
-	reversed.append(words[0])
-	return ''.join(reversed)
+	# words = sentence.split()
+	# reversed = [w +' ' for w in words[:0:-1]]
+	# reversed.append(words[0])
+	# return ''.join(reversed)
+	reversed = sentence.split()[::-1]
+	return ' '.join(reversed)
 	
 '''ALMOST THERE: Given an integer n, return True if n is within 10 of either 100 or 200'''
 def almost_there(n):
@@ -97,14 +101,18 @@ def almost_there(n):
 	
 '''Given a list of ints, return True if the array contains a 3 next to a 3 somewhere.'''
 def has_33(ints):
-	found = False
-	for num in ints:
-		if not num == 3:
-			found = False
-		elif found and (num == 3):
+	# found = False
+	# for num in ints:
+		# if not num == 3:
+			# found = False
+		# elif found and (num == 3):
+			# return True
+		# elif num == 3:
+			# found = True
+	# return False
+	for a in range(len(ints) - 1):
+		if (ints[a] == 3) and (ints[a + 1] == 3):
 			return True
-		elif num == 3:
-			found = True
 	return False
 
 '''PAPER DOLL: Given a string, return a string where for every character in the original 
@@ -121,7 +129,7 @@ def blackjack(a, b, c):
 	thereIsAnEleven = (a == 11) or (b == 11) or (c == 11)
 	if (sum > 21) and thereIsAnEleven:
 		sum -= 10
-	if (sum < 21):
+	if (sum <= 21):
 		return sum
 	else:
 		return 'BUST'
@@ -147,16 +155,22 @@ def summer_69(numbers):
 True if it contains 007 in order
 e.g.  [0,1,0,2,7] -> True'''
 def spy_game(integers):
-	filtered = [x  for x in integers if x == 0 or x == 7]
-	last = len(filtered) - 2#maximum length including first 0
-	if last < 1:
-		return False
-	bondFound = False
-	for x in range(last):
-		if (filtered[x] == 0) and (filtered[x + 1] == 0) and (filtered[x + 2] == 7):
-			bondFound = True
-			break
-	return bondFound
+	# filtered = [x  for x in integers if x == 0 or x == 7]
+	# last = len(filtered) - 2#maximum length including first 0
+	# if last < 1:
+		# return False
+	# bondFound = False
+	# for x in range(last):
+		# if (filtered[x] == 0) and (filtered[x + 1] == 0) and (filtered[x + 2] == 7):
+			# bondFound = True
+			# break
+	# return bondFound
+	'''This implementation will crash if 666 is included in 'integers' '''
+	code = [0,0,7,666]#666 ensures code[0] always can be referenced
+	for num in integers:
+		if num == code[0]:
+			code.pop(0)
+	return len(code) == 1
 '''Return a list of all primes up to and including 'number' '''
 def makePrimes(num):
 	allNums = [x for x in range(num)]
