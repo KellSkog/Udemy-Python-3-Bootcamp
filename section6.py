@@ -203,5 +203,85 @@ and returns a 5x5 representation of that letter'''
 def print_big(letter):
 	print(font[letter])
 	
+def consumer(x):
+	return 2 * x
+def consumer2(x, y):#No function overloading
+	return y * x
+	
+def mapFunc():
+	nums = [1,2,3,4,5]
+	othernums = map(consumer, nums)
+	# print(othernums[0]) //TypeError: 'map' object is not subscriptable
+	#map returns an iterator
+	print(tuple(othernums))
+	for item in othernums:
+		print(item)
+	arg1 = [1,2,3]
+	arg2 = [1,10,100]
+	print(list(map(consumer2,arg1,arg2)))
+	
+def is_good(x):
+	return x == 42
+	
+def filterFunc():
+	filtered = filter(is_good, [1,2,42,3,4,42])
+	print([x for x in filtered])
+	
+def laLaLambda():
+	print([i for i in map(lambda num : num ** 2, [1,2,3])])
+	for i in filter(lambda q : q%2 == 0, [1,2,3,4,5,6,7,8,9]):
+		print(i)
+'''Write a function that computes the volume of a sphere given its radius'''
+def assignment_sphere(radius):
+	from math import pi
+	return 4*pi*radius**3/3
+	
+'''Write a function that checks whether a number is in a given range (inclusive of high and low)'''
+def ran_check(num,low,high):
+	return low <= num <= high
+	
+'''Write a Python function that accepts a string and calculates the number of upper case letters and lower case letters.'''
+def up_low(s):
+	upper = 0
+	lower = 0
+	for c in s:
+		if c.isupper():
+			upper += 1
+		elif c.islower():
+			lower += 1
+	return (upper, lower)
+	
+'''Write a Python function that takes a list and returns a new list with unique elements of the first list.'''
+def unique_list(lst):
+	return list(set(lst))
+	
+'''Write a Python function to multiply all the numbers in a list.'''
+def multiply(numbers):
+	mul = 1
+	for x in numbers:
+		mul *= x
+	return mul
+'''Write a Python function that checks whether a passed in string is palindrome or not.
+Note: A palindrome is word, phrase, or sequence that reads the same backward as forward, e.g., madam or nurses run.'''
+def palindrome(s):
+	#Handle spaces
+	filtered = reversed = [c for c in filter(lambda c: c!= ' ', s)]
+	reversed.reverse()
+	return filtered == reversed
+	#Handle odd and even length
+	
+'''Write a Python function to check whether a string is pangram or not.
+
+Note : Pangrams are words or sentences containing every letter of the alphabet at least once.
+For example : "The quick brown fox jumps over the lazy dog"'''
+import string
+
+def ispangram(str1, alphabet=string.ascii_lowercase):
+	uniq = set(str1)
+	for letter in alphabet:
+		if not letter in uniq:
+			return False
+	return True
+
 if __name__ == '__main__':
 	print("Methods and functions")
