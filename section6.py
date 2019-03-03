@@ -234,11 +234,12 @@ def laLaLambda():
 '''Write a function that computes the volume of a sphere given its radius'''
 def assignment_sphere(radius):
 	from math import pi
-	return 4*pi*radius**3/3
+	return 4.0*pi*radius**3/3.0
 	
 '''Write a function that checks whether a number is in a given range (inclusive of high and low)'''
 def ran_check(num,low,high):
-	return low <= num <= high
+	# return low <= num <= high
+	return num in range(low, high)#low included high excluded
 	
 '''Write a Python function that accepts a string and calculates the number of upper case letters and lower case letters.'''
 def up_low(s):
@@ -269,6 +270,8 @@ def palindrome(s):
 	reversed.reverse()
 	return filtered == reversed
 	#Handle odd and even length
+	#Suggested solution
+	# return s == s[::-1]//Doesn't work due to spaces
 	
 '''Write a Python function to check whether a string is pangram or not.
 
@@ -277,11 +280,12 @@ For example : "The quick brown fox jumps over the lazy dog"'''
 import string
 
 def ispangram(str1, alphabet=string.ascii_lowercase):
-	uniq = set(str1)
-	for letter in alphabet:
-		if not letter in uniq:
-			return False
-	return True
+	uniq = set(str1.lower())
+	return set(alphabet) <= uniq
+	# for letter in alphabet:
+		# if not letter in uniq:
+			# return False
+	# return True
 
 if __name__ == '__main__':
 	print("Methods and functions")
